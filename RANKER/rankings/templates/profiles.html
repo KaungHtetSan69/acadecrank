@@ -14,15 +14,14 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="overname in" id="studentitle" >{{student.name}}</h1>
+        <h1 class="in" id="studentitle" >{{student.name}}</h1>
         <div class="brotherdiv">
-            <img class ="brother left" style ='padding-top:0%' src="{% static 'images/border.png'%}" alt="border">
-    
+            <img class ="brother left" src="{% static 'images/border.png'%}" alt="border">
         </div>
         <h2 id = "studentstatus" class="right">{{status}}</h2>
     </div>
     <div id = 'profilesbg'>
-        <div class="container" style="padding-bottom: 0px; margin: bottom 0px;">
+        <div class="container">
             <ul class= 'profile' id = 'studentprofile'>
                 <li class="overname bottom" data-name = "Overall" data-counter="0" data-overall="{{student.overall}}"></li>
                 <li class="overname bottom" data-name = "Social Science" data-counter="0" data-overall="{{student.ss}}"></li>
