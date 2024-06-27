@@ -13,20 +13,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <body>
-    <div>
-        <h1 class="eventheader top">Events</h1>
-        <div class="in">
-            <img src="{% static 'images/fire.png'%}" alt="fire" class = "fire">
-        <div style = "background-color:black;">
-            <br><br><br>
+    <div class ="subtitle top" >
+        <div>
+            <img class = "sun"src="{% static 'images/fire.png' %}" alt="fire">
+            <img src="{% static 'images/spikes.png'%}" alt="fire" class = "sun">    
         </div>
-        <img src="{% static 'images/spikes.png'%}" alt="fire" class = "fire">
-        </div>
+    </div>
+
+    <div class="container">
         {% for students in list%}
         {% for key, input in students.items%}
         <div class="container">
-            <h1 class="eventheader1 right"> {{key.name}} </h1>
+            <h2 class="eventheader1 right" id = "heading3"> {{key.name}} </h1>
+            <div id="eventrow">
+                {% for student in input%}
+                    <div class = "overall" id = "flexchild">                            <div class="card border-0">
+                                <div class="card-body">
+                                    <p style="font-size:45px;">{{student.name}}</p>
+                                    <ul style ="list-style-position:inside;list-style-type: none; padding-left:0;">
+                                        <li class="overname bottom" data-name = "SS" data-counter="0" data-overall="{{student.ss}}"></li>
+                                        <li class="overname bottom" data-name = "Science" data-counter="0" data-overall="{{student.science}}"></li>
+                                        <li class="overname bottom" data-name = "Math" data-counter="0" data-overall="{{student.math}}"></li>
+                                        <li class="overname bottom" data-name = "Econ" data-counter="0" data-overall="{{student.econ}}"></li>
+                                        <li class="overname bottom" data-name = "Lit" data-counter="0" data-overall="{{student.lit}}"></li>
+                                        <li class="overname bottom" data-name = "Art" data-counter="0" data-overall="{{student.art}}"></li>
+                                        <li class="overname bottom" data-name = "Music" data-counter="0" data-overall="{{student.music}}"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                    {% endfor %}
+                </div>
         </div>
+    </div>
+        
         <style>
             #eventrow{
                 display:flex;
@@ -37,28 +57,6 @@
                 flex:1 1 200px;
             }
         </style>
-        <div class="container">
-            <div id="eventrow">
-                {% for student in input%}
-                    <div id = "flexchild">
-                        <div style="border:10px,double,black;">
-                            <div class="card border-0" style="padding:5%;">
-                                <div class="card-body">
-                                    <p class="left" style = "font-size:30px;">{{student.name}}</p>
-                                    <p class="left">SS: {{student.ss}}</p>
-                                    <p class="left">Lit: {{student.lit}}</p>
-                                    <p class="left">Math: {{student.math}}</p>
-                                    <p class="left">Econ: {{student.econ}}</p>
-                                    <p class="left">Music: {{student.music}}</p>
-                                    <p class="left">Art:{{student.art}}</p>
-                                    <p class="left">Science:{{student.science}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
             <div class="brotherdiv">
                 <img class ="brother in" src="{% static 'images/border.png'%}" alt="border">
             </div>
