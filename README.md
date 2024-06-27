@@ -1,2 +1,0 @@
-# acadecrank
-RANKINGS FOR YUMMY PEOPLE
