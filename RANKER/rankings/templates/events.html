@@ -23,14 +23,13 @@
     <div class="container">
         {% for students in list%}
         {% for key, input in students.items%}
-        <div class="container">
-                <h2 id="eventnames">{{key.name}}</h2>
+                <h2 id="eventnames" class="in">{{key.name}}</h2>
             
             <div id="eventrow">
                 {% for student in input%}
                     <div class = "overall" id = "flexchild">                            <div class="card border-0">
                                 <div class="card-body">
-                                    <p style="font-size:45px;">{{student.name}}</p>
+                                    <p style="font-size:45px;" class="top">{{student.name}}</p>
                                     <ul style ="list-style-position:inside;list-style-type: none; padding-left:0;">
                                         <li class="overname bottom" data-name = "SS" data-counter="0" data-overall="{{student.ss}}"></li>
                                         <li class="overname bottom" data-name = "Science" data-counter="0" data-overall="{{student.science}}"></li>
