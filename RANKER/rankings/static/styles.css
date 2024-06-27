@@ -187,19 +187,6 @@ a:hover{
     background-repeat:no-repeat;
 }
 
-.profile{
-    list-style-type:none;
-    text-align:center;
-    font-family: "Cedarville Cursive",cursive;
-}
-#studentprofile{
-    font-size:40px;
-    padding-bottom:0%;
-    margin-bottom:0px;
-    color:black;
-    border-left:double 5px black;
-    border-right:double 5px black;
-}
 .twothings{
     width:100%;
     height:auto;
@@ -216,39 +203,15 @@ a{
 a:hover{
     color:red;
 }
-#studentitle{
-    font-size:80px; 
-    font-family:'Cedarville Cursive',cursive;
-    margin-top:100px;
-    margin-bottom:100px;
-    text-align:center;
-    color:black;
-}
-#studentstatus{
-    font-size:70px; 
-    font-family:'Cedarville Cursive',cursive;
-    margin-top:50px;
-    margin-bottom:100px;
-    text-align:center;
-    color:black;
-}
-#studentprofiles{
-    font-size:300%;
-    margin-top:0px;
-    margin-bottom:0px;
-    border-right:solid white 3px;
-    border-left:solid white 3px;}
+
 .profilelinker{
     text-decoration:none;
-    color:white;
+    color:black;
 }
 .profilelinker:hover{
     color:red
 }
-#profilesbg{
-    margin:0px;
-    padding:0px;
-}
+
 #buildings{
     background-image:url('images/building.jpg');
     background-size:auto 100%;
