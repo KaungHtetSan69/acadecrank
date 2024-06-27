@@ -21,16 +21,16 @@ import whitenoise
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u2a=l%lz7fjp-7sq%5bz4&tf9durfa)p!5=5u#jy9gtnq5623y'
-
+SECRET_KEY = os.environ.get("yay")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://peaceful-citadel-96218-834248648fed.herokuapp.com/']
 
 
 # Application definition
@@ -130,3 +130,4 @@ STATICFILES_STORAGE = whitenoise.storage.CompressedManifestStaticFilesStorage
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
