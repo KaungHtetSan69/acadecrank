@@ -43,7 +43,14 @@ a:hover{
     margin-top:100px;
     margin-bottom:50px;
 }
-
+#eventrow{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+#flexchild{
+    flex:1 1 200px;
+}
 
 #eventdiv{
     width:30%;
