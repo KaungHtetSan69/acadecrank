@@ -24,7 +24,8 @@
         {% for students in list%}
         {% for key, input in students.items%}
         <div class="container">
-            <h2 class="eventheader1 right" id = "heading3"> {{key.name}} </h1>
+                <h2 style="font-family:'Courier New';text-align: center; color:black; font-size:60px; padding-top:100px;padding-bottom:70px;">{{key.name}}</h2>
+            
             <div id="eventrow">
                 {% for student in input%}
                     <div class = "overall" id = "flexchild">                            <div class="card border-0">

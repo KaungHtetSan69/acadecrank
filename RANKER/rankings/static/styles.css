@@ -35,14 +35,6 @@ a:hover{
 #events{
     width:100%;
 }
-.eventheader{
-    font-family: 'Cedarville Cursive',cursive;
-    color:black;
-    font-size:100px;
-    text-align: center;
-    margin-top:100px;
-    margin-bottom:50px;
-}
 #eventrow{
     display:flex;
     justify-content: center;
