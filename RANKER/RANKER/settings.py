@@ -82,12 +82,8 @@ WSGI_APPLICATION = 'RANKER.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6olpdqg5a8b5m',
-        'HOST':'ccba8a0vn4fb2p.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-        'USER':'ufr2lggreq8t2o',
-        'PASSWORD':'p818365bba06ea04d3f089a7d829c89ced6625438de85996203be78123f42c54a',
-        'PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
