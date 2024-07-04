@@ -65,7 +65,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             authlogin(request, user)
-            next_page = request.GET.get('next', 'default_page')
+            next_page = request.GET.get('next', 'home')
             return redirect(next_page)
 
 
