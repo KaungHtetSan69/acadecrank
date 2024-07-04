@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Student
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login as authlogin
 from django import forms
 from .models import input
@@ -21,7 +21,10 @@ class setForm(forms.ModelForm):
     class Meta:
         model = Student  
         fields = ['name', 'subject', 'score', 'event']
+def is_superuser(user):
+    return user.is_superuser
 
+@login_required
 def profile(request, name):
     loweredname = name.capitalize()
     lmao = Student.objects.get(name=loweredname)
@@ -39,6 +42,7 @@ def profile(request, name):
         'allstudents':sorted(Student.objects.all(), key= lambda x:x.name)
     })
 
+@login_required
 def index(request):
     list = sorted(Student.objects.all(),key=lambda x:x.overall, reverse=True)
     team= 0
@@ -68,6 +72,7 @@ def login(request):
     else:
         return render(request,"login.html")
 
+@login_required
 def subjects(request,subject):
     titles = {"ss":"Social Science", "math":"Mathematics","science":"Science","art":"Art","econ":"Economics","music":"Music","lit":"Literature"}
     students = sorted(Student.objects.all(),key=lambda x:getattr(x,subject), reverse=True)
@@ -79,6 +84,7 @@ def subjects(request,subject):
         "title":titles[subject]
     })
 
+
 def get_subject(request,subject):
     titles = {"ss":"Social Science", "math":"Mathematics","science":"Science","art":"Art","econ":"Economics","music":"Music","lit":"Literature"}
     students = sorted(Student.objects.all(),key=lambda x:getattr(x,subject), reverse=True)
@@ -87,6 +93,7 @@ def get_subject(request,subject):
     students_json = json.loads(serialize('json', students))
     return JsonResponse({"overall": students_json, "title": titles[subject]})
 
+@login_required
 def events(request):
     lmao = []
     for event in aevent.objects.all():
@@ -98,6 +105,7 @@ def events(request):
 
             
 @login_required
+@user_passes_test(is_superuser)
 def setting(request):
     if request.method == "POST":
         form = setForm(request.POST)
@@ -107,16 +115,26 @@ def setting(request):
             score = form.cleaned_data["score"]
             theevent = form.cleaned_data["event"]
             smile= Student.objects.get(name=student)
-            if subject == 'math':
-                setattr(smile, subject, (getattr(smile,subject)+int(score)*28.57*3)/4)
-            else:
-                setattr(smile, subject, (getattr(smile,subject)+int(score)*60)/4)
-            smile.save()
             instance, created = aevent.objects.get_or_create(name = theevent)
             nani, create = input.objects.get_or_create(name = smile.name, event = instance)
-            setattr(nani,subject,int(score))
-            nani.save()
-            instance.save()
+            if getattr(nani,subject)==None:
+                setattr(nani,subject,int(score))
+                if subject == 'math':
+                    setattr(smile, subject, (getattr(smile,subject)+int(score)*28.57*3)/4)
+                else:
+                    setattr(smile, subject, (getattr(smile,subject)+int(score)*60)/4)
+                smile.save()
+                nani.save()
+                instance.save()
+            else:
+                badscore = getattr(nani,subject)
+                if subject == 'math':
+                    setattr(smile, subject, getattr(smile,subject)+(int(score)*3-badscore*3)*28.57/4)
+                else:
+                    setattr(smile, subject, getattr(smile,subject)+(int(score)*3-badscore*3)*60/4)
+                smile.save()
+                nani.save()
+                instance.save() 
 
 
             return render(request, "setting.html",{
