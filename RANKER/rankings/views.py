@@ -11,7 +11,7 @@ import random
 import json
 class setForm(forms.ModelForm):
     SUBjects = [('ss','Ss'),('music','Music'),('lit','Lit'),('math','Math'),('science','Science'),('art','Art'),('econ','Econ')]
-    name= forms.ModelChoiceField(queryset=Student.objects.all())
+    name= forms.ModelChoiceField(queryset=sorted(Student.objects.all(),key= lambda x:x.name))
     def __init__(self, *args, **kwargs):
         super(setForm, self).__init__(*args, **kwargs)
         self.fields['name'].label_from_instance = lambda obj: "%s" % obj.name
@@ -44,7 +44,8 @@ def profile(request, name):
 
 @login_required
 def index(request):
-    list = sorted(Student.objects.all(),key=lambda x:x.overall, reverse=True)
+    temp = sorted(Student.objects.all(),key=lambda x:x.name)
+    list = sorted(temp,key=lambda x:x.overall, reverse=True)
     team= 0
     for gpagroup in ["Honors","Scholastic","Varsity"]:
         teams = sorted(Student.objects.filter(gpa = gpagroup), key = lambda x:x.overall, reverse=True)[0:2]
