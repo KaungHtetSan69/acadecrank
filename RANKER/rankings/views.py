@@ -129,12 +129,12 @@ def setting(request):
                 nani.save()
                 instance.save()
             else:
-                setattr(nani,subject,int(score))
                 badscore = getattr(nani,subject)
                 if subject == 'math':
                     setattr(smile, subject, getattr(smile,subject)+(int(score)*3-badscore*3)*28.57/4)
                 else:
                     setattr(smile, subject, getattr(smile,subject)+(int(score)*3-badscore*3)*20/4)
+                setattr(nani,subject,int(score))
                 smile.save()
                 nani.save()
                 instance.save() 
