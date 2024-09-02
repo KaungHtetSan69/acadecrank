@@ -4,7 +4,7 @@ function count2(){
     document.querySelectorAll(".overname").forEach(function(element){
         let count = parseInt(element.dataset.counter)
         let score = parseInt(element.dataset.overall)
-        if (count!= score && count+200<score){
+        if (count!= score && count+200<=score){
             count+=53
             element.innerHTML=`${element.dataset.name}: ${count}`
             element.dataset.counter = count

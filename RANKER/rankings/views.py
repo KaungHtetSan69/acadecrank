@@ -44,7 +44,7 @@ def profile(request, name):
 
 @login_required
 def index(request):
-    list = sorted(Student.objects.all(),key=lambda x:x.overall, reverse=True)
+    list = sorted(Student.objects.all(), key=lambda x: x.overall, reverse=True)
     team= 0
     for gpagroup in ["Honors","Scholastic","Varsity"]:
         teams = sorted(Student.objects.filter(gpa = gpagroup), key = lambda x:x.overall, reverse=True)[0:2]
