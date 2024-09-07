@@ -53,6 +53,11 @@ class input(models.Model):
     art = models.IntegerField(default=None, blank = True,null=True)
     def __str__(self) -> str:
         return f"{self.name}:{self.event}"
+    
+class impromptu_questions(models.Model):
+    question = models.CharField()
+    def __str__(self) -> str:
+        return f"{self.question}"
 
 
     

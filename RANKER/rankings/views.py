@@ -1,10 +1,8 @@
 from django.shortcuts import render,redirect
-from .models import Student
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login as authlogin
 from django import forms
-from .models import input
-from .models import aevent
+from .models import input, aevent, Student
 from django.core.serializers import serialize
 from django.http import JsonResponse
 import random
@@ -99,7 +97,8 @@ def get_subject(request,subject):
 def events(request):
     lmao = []
     for event in aevent.objects.all():
-        lmao.append({event:event.input_set.all()})
+        sorted_inputs = event.input_set.order_by('name')
+        lmao.append({event: sorted_inputs})
     return render(request,'events.html',{
         "list": reversed(lmao),
     })
