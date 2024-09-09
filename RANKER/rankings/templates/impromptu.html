@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo.png'%}" />
+    <link rel="stylesheet" href = "{% static 'styles.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div id = "intro">
+        <div class="container" id = "headingdiv">
+            <h1 id="title">
+                Impromptu Practice
+            </h1>
+        </div> 
+        <div id = "actualcontainer">
+            <button id = "start">Click to start</button>
+            <div id = "rules">
+                <p> Rules:</p>
+                <p>1:30 to 2 minute speech to respond to 1 of 3 prompts.</p>
+                <p>1 minute to prepare</p>
+                <p>1 minute timer will start as soon as you click start</p>
+                <p>GL HF (if you can)</p>
+            </div>
+        </div>
+    </div>
+    <div id = "real">
+        <div class = "container" id = "prompts">
+            <h1 style = "font-family:'Cedarville Cursive'">Prompts:</h1>
+            <p id = "q1">{{questions.question1}}</p>
+            <p id = "q2">{{questions.question2}}</p>
+            <p id = "q3">{{questions.question3}}</p>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <button id = "reset">Reset</button>
+                </div>
+                <div class="col">
+                    <h2 id = "timer" data-seconds = "60">1:00</h2>
+                </div>
+                <div class="col">
+                    <button id = "impromptstart">Start Impromptu</button>
+                    <button id = "impromptend">End Impromptu</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id = "videorecord">Record Video?</button>
+                    <button id = "audiorecord">Record Audio?</button>
+                </div>
+            </div>
+        </div>
+        <video id="playback" controls></video>
+        <div>
+            <textarea placeholder = "Brainstorm here! Or on a separate sheet of paper. Entirely down to you. Or up to you." autofocus id = "brainstorm" cols="100" rows = "20"></textarea>
+        </div>
+    </div>
+</body>
+<script src ="{% static 'script.js'%}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>

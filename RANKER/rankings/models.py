@@ -55,9 +55,12 @@ class input(models.Model):
         return f"{self.name}:{self.event}"
     
 class impromptu_questions(models.Model):
-    question = models.CharField()
+    question1 = models.CharField()
+    question2 = models.CharField()
+    question3 = models.CharField()
+
     def __str__(self) -> str:
-        return f"{self.question}"
+        return "Hi, this is an unknown function, and your computer will crash in about 2 years."
 
 
     

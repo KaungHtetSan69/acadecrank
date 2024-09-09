@@ -313,5 +313,60 @@ a:hover{
         opacity:0;
     }
 }
+#prompts{
+    color:black;
+    margin-top:5%;
+}
+#headingdiv{
+    margin-top:100px;
+}
+#title{
+    font-size:100px;
+    color: black;
+    text-align:center;
+    font-family:'Cedarville Cursive';
+}
+#actualcontainer{
+    text-align:center;
+    margin-top:5%
+}
+#rules{
+    margin: left 50% right 50%;
+    margin-top:5%;
+    font-family:'Times New Roman', Times, serif;
+}
+#videorecord{
+    background-color:darkred;
+}
+#audiorecord{
+    background-color:darkred;
+}
+#start{
+    font-size:30px;
+}
+#impromptend{
+    display:none;
+    
+}
+#playback{
+    display:none;
+    margin:auto;
+}
+#timer{
+    font-size:50px;
+}
+#real{
+    display:none;
+    text-align:center;
+}
 
+
+@keyframes fade {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+@keyframes fade_in{
+    0%{ opacity:0;}
+    100%{opacity:1;}
+  }
 

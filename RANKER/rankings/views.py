@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login as authlogin
 from django import forms
-from .models import input, aevent, Student
+from .models import input, aevent, Student, impromptu_questions
 from django.core.serializers import serialize
 from django.http import JsonResponse
 import random
@@ -83,7 +83,21 @@ def subjects(request,subject):
         "subject":subject,
         "title":titles[subject]
     })
+def impromptu(request):
+    set1 = random.choice(impromptu_questions.objects.all())
+    return render(request,"impromptu.html",{
+        "questions":set1})
 
+def impromptureq(request):
+    set1 = random.choice(impromptu_questions.objects.all())
+    serialized = serialize('json', [set1])
+    data = json.loads(serialized)[0]
+    newset = {
+        "question1": data['fields']['question1'],
+        "question2": data['fields']['question2'],
+        "question3": data['fields']['question3']
+    }
+    return JsonResponse({"newquestions": newset})
 
 def get_subject(request,subject):
     titles = {"ss":"Social Science", "math":"Mathematics","science":"Science","art":"Art","econ":"Economics","music":"Music","lit":"Literature"}
