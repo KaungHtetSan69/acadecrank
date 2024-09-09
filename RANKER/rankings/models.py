@@ -60,7 +60,7 @@ class impromptu_questions(models.Model):
     question3 = models.CharField()
 
     def __str__(self) -> str:
-        return "Hi, this is an unknown function, and your computer will crash in about 2 years."
+        return f"{self.question1}"
 
 
     
