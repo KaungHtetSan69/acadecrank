@@ -1,5 +1,5 @@
 var starter = document.getElementById("start");
-var lmaoaudio = new Audio("{% static 'images/notification.mp3'%}");
+var lmaoaudio = new Audio(audioURL);
 var resetBtn = document.getElementById("reset");
 var impromptBtn = document.getElementById("impromptstart");
 var endimpBtn = document.getElementById("impromptend");
