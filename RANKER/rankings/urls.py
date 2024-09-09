@@ -8,5 +8,8 @@ urlpatterns = [
     path('events', views.events, name = "event"),
     path('subjects/<str:subject>', views.subjects,name="subjects"),
     path('profiles/<str:name>', views.profile, name = "profiles"),
-    path('get_subjects/<str:subject>',views.get_subject, name ="getsubject")
+    path('get_subjects/<str:subject>',views.get_subject, name ="getsubject"),
+    path('impromptu',views.impromptu, name = "impromptu"),
+    path('impromptureq',views.impromptureq, name = "impromptureq")
+
     ]
