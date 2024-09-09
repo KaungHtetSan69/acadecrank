@@ -355,6 +355,12 @@ a:hover{
 #timer{
     font-size:50px;
 }
+.col {
+    min-height: 100px; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
 #real{
     display:none;
     text-align:center;
