@@ -18,8 +18,8 @@
                 Impromptu Practice
             </h1>
         </div> 
-        <div id = "actualcontainer">
-            <button id = "start">Click to start</button>
+        <div class = "container" id = "actualcontainer">
+            <a id = "start" href = "#">Click to start</a>
             <div id = "rules">
                 <p> Rules:</p>
                 <p>1:30 to 2 minute speech to respond to 1 of 3 prompts.</p>
@@ -31,10 +31,10 @@
     </div>
     <div id = "real">
         <div class = "container" id = "prompts">
-            <h1 style = "font-family:'Cedarville Cursive'">Prompts:</h1>
-            <p id = "q1">1. {{questions.question1}}</p>
-            <p id = "q2">2. {{questions.question2}}</p>
-            <p id = "q3">3. {{questions.question3}}</p>
+            <h1 style = "font-family:'Cedarville Cursive'; margin:1%">Prompts:</h1>
+            <p>1. Why are you</p>
+            <p>2. Who are you</p>
+            <p>3. When are you</p>
         </div>
         <div>
             <div class="row">
@@ -45,8 +45,8 @@
                     <h2 id = "timer" data-seconds = "60">1:00</h2>
                 </div>
                 <div class="col nani1">
-                    <button id = "impromptstart">Start Impromptu</button>
-                    <button id = "impromptend">End Impromptu</button>
+                    <button id = "impromptstart">Start</button>
+                    <button id = "impromptend">End</button>
                 </div>
             </div>
             <div class="row">
@@ -58,7 +58,7 @@
         </div>
         <video id="playback" controls></video>
         <div>
-            <textarea placeholder = "Brainstorm here! Or on a separate sheet of paper. Entirely down to you. Or up to you." autofocus id = "brainstorm" cols="100" rows = "20"></textarea>
+            <textarea placeholder = "Brainstorm here! Or on a separate sheet of paper. Entirely down to you. Or up to you." autofocus id = "brainstorm"></textarea>
         </div>
     </div>
 </body>

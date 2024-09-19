@@ -326,13 +326,21 @@ a:hover{
     text-align:center;
     font-family:'Cedarville Cursive';
 }
+#brainstorm{
+    width: 70%;  
+    height: 500px; 
+    min-height: 100px; 
+    max-width: 100%; 
+    margin:auto;
+}
 #actualcontainer{
     text-align:center;
-    margin-top:5%
+    margin-top:5%;
+    border-left: 10px double black; 
+    border-right: 10px double black;
 }
 #rules{
-    margin: left 50% right 50%;
-    margin-top:5%;
+    margin: 1%;
     font-family:'Times New Roman', Times, serif;
 }
 #videorecord{
@@ -343,10 +351,15 @@ a:hover{
 }
 #start{
     font-size:30px;
+    font-family:'Cedarville Cursive';
+    color:black;
+    text-decoration:none;
+}
+#start:hover{
+    color:red;
 }
 #impromptend{
     display:none;
-    
 }
 #playback{
     display:none;
@@ -355,18 +368,16 @@ a:hover{
 #timer{
     font-size:50px;
 }
+#real{
+    display:none;
+    text-align:center;
+}
 .nani1 {
     min-height: 100px; 
     display: flex;
     align-items: center;
     justify-content: center; 
 }
-#real{
-    display:none;
-    text-align:center;
-}
-
-
 @keyframes fade {
     0% { opacity: 1; }
     100% { opacity: 0; }
@@ -375,4 +386,11 @@ a:hover{
     0%{ opacity:0;}
     100%{opacity:1;}
   }
-
+@media only screen and (max-width: 570px){
+    #imprompttitle{
+        display:none;
+    }
+    #actualcontainer{
+        border:none
+    }
+}
